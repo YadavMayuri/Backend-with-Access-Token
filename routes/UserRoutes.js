@@ -1,11 +1,14 @@
 import express from "express";
-import { register } from "../controllers/UsersControllers.js";
+import { RegenerateToken, register } from "../controllers/UsersControllers.js";
+import { registrationCheck } from "../middlewares/authMiddleware.js";
 
 
 
 var router = express.Router();
 
-router.post('/register',register)
+router.post('/register',registrationCheck,register)
+router.post('/RegenerateToken',RegenerateToken)
+
 
 
 
