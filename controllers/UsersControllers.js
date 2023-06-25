@@ -31,6 +31,7 @@ export const register = async (req, res) => {
             await Users.updateOne({ _id: user._id }, { $unset: { access_token: 1 } });
         }, 60 * 1000);
 
+        
 
         // res.json({ access_token: accessToken });
         await user.save();
